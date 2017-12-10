@@ -1,0 +1,40 @@
+/*For Executive Staffs*/
+.p-lg {
+    padding: 30px;
+}
+.navy-bg {
+    background-color: #1ab394;
+    color: #ffffff;
+}
+.widget-head-color-box {
+    border-radius: 5px 5px 0 0;
+    margin-top: 10px;
+}
+.m-b-md {
+    margin-bottom: 20px;
+    height:90px;
+}
+.no-margins {
+    margin: 0 !important;
+}
+.font-bold {
+    font-weight: 600;
+}
+h2 {
+    font-size: 24px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 100;
+}
+img.circle-border {
+    border: 6px solid #FFFFFF;
+    border-radius: 50%;
+    width:100%;
+    height:auto;
+}
+.widget-text-box {
+    padding: 20px;
+    border: 1px solid #e7eaec;
+    background: #ffffff;
+}
+
