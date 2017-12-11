@@ -9,13 +9,13 @@
 @extends('admin.master')
 
 @section('title')
-    Add Executive Staff
+    Add Office Staff
 @endsection
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">In Add Executive Staff</h1>
+            <h1 class="page-header">In Add Office Staff</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -29,7 +29,7 @@
                 </div>
             @endif
             <div class="well">
-                <form class="form-horizontal" action="{{ url('/staff/executive/new-executive-staff') }}" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="{{ url('/staff/office/new-office-staff') }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="name" class="col-sm-3">Name</label>
@@ -67,13 +67,6 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="details_link" class="col-sm-3">Details Link</label>
-                        <div class="col-sm-9">
-                            <input type="text" name="details_link" id="details_link" class="form-control">
-                            <span class="text-danger">{{ $errors->has('details_link') ? $errors->first('details_link') : '' }}</span>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label for="picture" class="col-sm-3">Profile Picture</label>
                         <div class="col-sm-9">
                             <input type="file" name="picture" id="picture" class="form-control" accept="image/*">
@@ -93,7 +86,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
-                            <button type="submit" name="btn" class="btn btn-success btn-block">Add Executive Staff</button>
+                            <button type="submit" name="btn" class="btn btn-success btn-block">Add Office Staff</button>
                         </div>
                     </div>
                 </form>

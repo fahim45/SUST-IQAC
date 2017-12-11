@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">IQAC Admin Panel</a>
+        <a class="navbar-brand" href="{{ url('/dashboard') }}">IQAC Admin Panel</a>
     </div>
     <!-- /.navbar-header -->
 
@@ -133,10 +133,10 @@
                             <a href="#">Office Staff<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
-                                    <a href="#">Add Office Staff</a>
+                                    <a href="{{ url('/staff/office/add-office-staff') }}">Add Office Staff</a>
                                 </li>
                                 <li>
-                                    <a href="#">Manage Office Staff</a>
+                                    <a href="{{ url('/staff/office/manage-office-staff') }}">Manage Office Staff</a>
                                 </li>
                             </ul>
                         </li>

@@ -80,7 +80,7 @@ Route::group(['middleware'=>'AuthenticateMiddleware'],function (){
     Route::post('/download/update-file', 'DownloadController@updateFileInfo');
     Route::get('/download/delete-file/{id}', 'DownloadController@deleteFileInfo');
 
-    /*>>>>>>>>>>>>>>>>>>For Staff<<<<<<<<<<<<<<<*/
+    /*>>>>>>>>>>>>>>>>>>For Executive Staff<<<<<<<<<<<<<<<*/
     Route::get('/staff/executive/add-executive-staff', 'StaffController@addExecutiveStaffForm');
     Route::post('/staff/executive/new-executive-staff', 'StaffController@saveExecutiveStaffInfo');
     Route::get('/staff/executive/manage-executive-staff', 'StaffController@manageExecutiveStaffInfo');
@@ -89,5 +89,15 @@ Route::group(['middleware'=>'AuthenticateMiddleware'],function (){
     Route::get('/staff/executive/edit-executive-staff/{id}', 'StaffController@editExecutiveStaffInfo');
     Route::post('/staff/executive/update-executive-staff', 'StaffController@updateExecutiveStaffInfo');
     Route::get('/staff/executive/delete-executive-staff/{id}', 'StaffController@deleteExecutiveStaffInfo');
+
+    /*>>>>>>>>>>>>>>>>>>For Office Staff<<<<<<<<<<<<<<<*/
+    Route::get('/staff/office/add-office-staff', 'StaffController@addOfficeStaffForm');
+    Route::post('/staff/office/new-office-staff', 'StaffController@saveOfficeStaffInfo');
+    Route::get('/staff/office/manage-office-staff', 'StaffController@manageOfficeStaffInfo');
+    Route::get('/staff/office/published-office-staff/{id}', 'StaffController@publishedOfficeStaffInfo');
+    Route::get('/staff/office/unpublished-office-staff/{id}', 'StaffController@unpublishedOfficeStaffInfo');
+    Route::get('/staff/office/edit-office-staff/{id}', 'StaffController@editOfficeStaffInfo');
+    Route::post('/staff/office/update-office-staff', 'StaffController@updateOfficeStaffInfo');
+    Route::get('/staff/office/delete-office-staff/{id}', 'StaffController@deleteOfficeStaffInfo');
 
 });
