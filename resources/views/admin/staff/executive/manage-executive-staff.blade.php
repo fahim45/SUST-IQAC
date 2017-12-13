@@ -9,13 +9,13 @@
 @extends('admin.master')
 
 @section('title')
-    Manage Activities
+    Manage Executive Staff
 @endsection
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">In Manage Activities</h1>
+            <h1 class="page-header">In Manage Executive Staff</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>

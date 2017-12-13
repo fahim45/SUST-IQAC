@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Activity;
 use App\Download;
 use App\Event;
+use App\ExecutiveStaff;
 use App\Notice;
+use App\OfficeStaff;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Mapper;
@@ -67,12 +69,17 @@ class FrontEndController extends Controller
     }
     public function executiveStaff(){
         $events = Event::where('publication_status', 1)->limit(3)->get();
+        $executiveStaffs = ExecutiveStaff::where('publication_status', '1')->get();
         return view('front.staff.executive-staff',[
-            'events'=>$events
+            'events'=>$events,
+            'executiveStaffs'=>$executiveStaffs
         ]);
     }
     public function officeStaff(){
-        return view('front.staff.office-staff');
+        $officeStaffs = OfficeStaff::where('publication_status', '1')->get();
+        return view('front.staff.office-staff',[
+            'officeStaffs'=>$officeStaffs
+        ]);
     }
     public function manual(){
         $events = Event::where('publication_status', 1)->limit(3)->get();

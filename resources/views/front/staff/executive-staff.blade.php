@@ -23,50 +23,29 @@
                         <h4 class="widget-title">Executive Staffs</h4>
                     </div>
                     <div class="qac-members" style="margin-top: 10px;">
+                        @foreach($executiveStaffs as $executiveStaff)
                         <div class="col-lg-6">
                             <div class="widget-head-color-box navy-bg p-lg text-center">
                                 <div class="m-b-md">
                                     <h2 class="font-bold no-margins">
-                                        Prof. Dr. Abdul Awwal Biswas
+                                        {{ $executiveStaff->name }}
                                     </h2>
-                                    <h4><b>Director</b></h4>
+                                    <h4><b>{{ $executiveStaff->designation }}</b></h4>
                                 </div>
-                                <img src="http://www.sust.edu/uploads/profile-images/1464227068.jpg" class="img-circle circle-border m-b-md" alt="profile">
+                                <img src="{{ asset($executiveStaff->picture) }}" class="img-circle circle-border m-b-md" alt="{{ $executiveStaff->name }}" style="height: 290px;">
                             </div>
                             <div class="widget-text-box">
                                 <address class="m-t-md">
-                                    <strong>IQAC, SUST</strong><br>
-                                    <b>Call:</b> 01711966412<br>
-                                    <b>Email:</b> <a href="mailto:iqac-dir@sust.edu">iqac-dir@sust.edu</a><br>
+                                    <strong>{{ $executiveStaff->office_address }}</strong><br>
+                                    <b>Call:</b> {{ $executiveStaff->mobile_no }}<br>
+                                    <b>Email:</b> <a href="mailto:{{ $executiveStaff->email }}">{{ $executiveStaff->email }}</a><br>
                                 </address>
                                 <div>
-                                    <span><a href="http://www.sust.edu/d/anp/faculty-profile-detail/343" target="_blank" class="btn btn-default">About Director</a></span>
+                                    <span><a href="{{ $executiveStaff->details_link }}" target="_blank" class="btn btn-default">About {{ $executiveStaff->designation }}</a></span>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-6">
-                            <div class="widget-head-color-box navy-bg p-lg text-center">
-                                <div class="m-b-md">
-                                    <h2 class="font-bold no-margins">
-                                        Prof. Dr. Md. Ashraful Alam
-                                    </h2>
-                                    <h4><b>Additional Director</b></h4>
-                                </div>
-                                <img src="http://www.sust.edu/uploads/profile-images/1458447235.jpg" class="img-circle circle-border m-b-md" alt="profile">
-                            </div>
-                            <div class="widget-text-box">
-                                <address class="m-t-md">
-                                    <strong>IQAC, SUST</strong><br>
-                                    <b>Call:</b> 01718364976<br>
-                                    <b>Email:</b> <a href="mailto:iqac-ad@sust.edu">iqac-ad@sust.edu</a><br>
-                                </address>
-                                <div>
-                                    <span><a href="http://www.sust.edu/d/che/faculty-profile-detail/83" target="_blank" class="btn btn-default">About Additional Director</a></span>
-                                </div>
-                            </div>
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
             </div> <!-- /.col-md-8 -->

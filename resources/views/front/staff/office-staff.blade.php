@@ -43,67 +43,30 @@
                         <h4 class="widget-title">Office Staffs</h4>
                     </div>
                     <div class="office-staff" style="margin-top: 10px;">
+                        @foreach($officeStaffs as $officeStaff)
                         <div class="col-lg-4">
                             <div class="widget-head-color-box navy-bg p-lg text-center">
                                 <div class="m-b-md">
                                     <h2 class="font-bold no-margins">
-                                        Md. Abdur Rouf
+                                        {{ $officeStaff->name }}
                                     </h2>
-                                    <h4><b>Office Manager</b></h4>
+                                    <h4><b>{{ $officeStaff->designation }}</b></h4>
                                 </div>
-                                <img src="{{ asset('/front/') }}/images/blog/author.jpg" class="img-circle circle-border m-b-md" alt="profile">
+                                <img src="{{ asset( $officeStaff->picture ) }}" class="img-circle circle-border m-b-md" alt="profile" style="height: 290px;">
                             </div>
                             <div class="widget-text-box">
                                 <address class="m-t-md">
-                                    <strong>IQAC, SUST</strong><br>
-                                    <b>Call:</b> 01721260416<br>
-                                    <b>Email:</b> <a href="mailto:rouf84-iqac@sust.edu">rouf84-iqac@sust.edu</a><br>
+                                    <strong>{{ $officeStaff->office_address }}</strong><br>
+                                    <b>Call:</b> {{ $officeStaff->mobile_no }}<br>
+                                    <b>Email:</b> <a href="mailto:{{ $officeStaff->email }}">{{ $officeStaff->email }}</a><br>
                                 </address>
                             </div>
                         </div>
-
-                        <div class="col-lg-4">
-                            <div class="widget-head-color-box navy-bg p-lg text-center">
-                                <div class="m-b-md">
-                                    <h2 class="font-bold no-margins">
-                                        Ashok Barman Ashim
-                                    </h2>
-                                    <h4><b>Accounts Officer</b></h4>
-                                </div>
-                                <img src="https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/15349763_10207512324462069_1854948665503529698_n.jpg?_nc_eui2=v1%3AAeG_z8O8GAMoARBl3RUO64k7EbJn0vHhWZLfHzVUzMWkHGPBqAcUwiipQfGXQ-Ru_9JlIOBFSSjAU9eOv3hECj-iTsHNYC4mwrgk_k0pL-zZwg&oh=ad6405490709bf3c2203853ee569a153&oe=5A98E5A4"
-                                     class="img-circle circle-border m-b-md" alt="profile">
-                            </div>
-                            <div class="widget-text-box">
-                                <address class="m-t-md">
-                                    <strong>IQAC, SUST</strong><br>
-                                    <b>Call:</b> 01711276070<br>
-                                    <b>Email:</b> <a href="mailto:ashioknitu-iqac@sust.edu">ashioknitu-iqac@sust.edu</a><br>
-                                </address>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <div class="widget-head-color-box navy-bg p-lg text-center">
-                                <div class="m-b-md">
-                                    <h2 class="font-bold no-margins">
-                                        Fahim Foysal Kamal
-                                    </h2>
-                                    <h4><b>IT Manager cum Communication Officer</b></h4>
-                                </div>
-                                <img src="{{ asset('/front/') }}/images/fahim.jpg" class="img-circle circle-border m-b-md" alt="profile" style="height: 290px;">
-                            </div>
-                            <div class="widget-text-box">
-                                <address class="m-t-md">
-                                    <strong>IQAC, SUST</strong><br>
-                                    <b>Call:</b> 01722858886<br>
-                                    <b>Email:</b> <a href="mailto:fahim-iqac@sust.edu">fahim-iqac@sust.edu</a><br>
-                                </address>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div> <!-- /.col-md-8 -->
-            <div class="col-md-12">
+            {{--<div class="col-md-12">
                 <div class="widget-main">
                     <div class="mlss">
                         <div class="col-lg-4">
@@ -145,8 +108,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Here begin Sidebar -->
+            </div>--}}
             <!---->
         </div>
     </div>

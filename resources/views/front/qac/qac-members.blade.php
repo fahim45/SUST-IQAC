@@ -95,7 +95,7 @@
                                         <h3 class="m-b-xs"><strong>Prof. Dr Md Ashraful Alam</strong></h3>
                                         <div class="font-bold">Member Secretary & Additional Director</div>
                                         <address class="m-t-md">
-                                            <strong>IQAC</strong><br>
+                                            <strong>QAC</strong><br>
                                             <strong>Shahjalal University of Science and Technology</strong><br>
                                             <abbr title="Phone">Phone:</abbr> 01718364976<br>
                                             <abbr title="Email">Email:</abbr> ashraf_sust@yahoo.com
@@ -118,7 +118,7 @@
                                         <h3 class="m-b-xs"><strong>Prof. Dr Abdul Awwal Biswas</strong></h3>
                                         <div class="font-bold">Member & Director</div>
                                         <address class="m-t-md">
-                                            <strong>IQAC</strong><br>
+                                            <strong>QAC</strong><br>
                                             <strong>Shahjalal University of Science and Technology</strong><br>
                                             <abbr title="Phone">Phone:</abbr> 01711966412 <br>
                                             <abbr title="Email">Email:</abbr> awwal_biswas@yahoo.com
@@ -141,7 +141,7 @@
                                         <h3 class="m-b-xs"><strong>Prof. Dr Md Shamsul Haque Prodhan</strong></h3>
                                         <div class="font-bold">Member</div>
                                         <address class="m-t-md">
-                                            <strong>IQAC</strong><br>
+                                            <strong>QAC</strong><br>
                                             <strong>Shahjalal University of Science and Technology</strong><br>
                                             <abbr title="Phone">Phone:</abbr> 01735948380<br>
                                             <abbr title="Email">Email:</abbr> shamsulhp@yahoo.com
@@ -164,8 +164,8 @@
                                         <h3 class="m-b-xs"><strong>Prof. Dr. A. Z. M. Manzoor Rashid</strong></h3>
                                         <div class="font-bold">Member</div>
                                         <address class="m-t-md">
-                                            <strong>Forestry & Environmental Science</strong><br>
-                                            <strong>IQAC</strong><br>
+                                            <strong>QAC</strong><br>
+                                            <strong>Shahjalal University of Science and Technology</strong><br>
                                             <abbr title="Phone">Phone:</abbr> 01711302555<br>
                                             <abbr title="Email">Email:</abbr> pollen_forest@yahoo.com
                                         </address>
@@ -187,7 +187,7 @@
                                         <h3 class="m-b-xs"><strong>Prof. Dr Mohammad Shahidur Rahman</strong></h3>
                                         <div class="font-bold">Member</div>
                                         <address class="m-t-md">
-                                            <strong>IQAC</strong><br>
+                                            <strong>QAC</strong><br>
                                             <strong>Shahjalal University of Science and Technology</strong><br>
                                             <abbr title="Phone">Phone:</abbr> 01914930807<br>
                                             <abbr title="Email">Email:</abbr> rahmanms@sust.edu
@@ -210,7 +210,7 @@
                                         <h3 class="m-b-xs"><strong>Prof. Dr Mosaddak Ahmed Chowdhury</strong></h3>
                                         <div class="font-bold">Member</div>
                                         <address class="m-t-md">
-                                            <strong>IQAC</strong><br>
+                                            <strong>QAC</strong><br>
                                             <strong>Shahjalal University of Science and Technology</strong><br>
                                             <abbr title="Phone">Phone:</abbr> 01713300240<br>
                                             <abbr title="Email">Email:</abbr> maclittlelife@yahoo.com
@@ -233,7 +233,7 @@
                                         <h3 class="m-b-xs"><strong>Prof. Dr Md Abdul Ghani</strong></h3>
                                         <div class="font-bold">Member</div>
                                         <address class="m-t-md">
-                                            <strong>IQAC</strong><br>
+                                            <strong>QAC</strong><br>
                                             <strong>Shahjalal University of Science and Technology</strong><br>
                                             <abbr title="Phone">Phone:</abbr> 01911613802<br>
                                             <abbr title="Email">Email:</abbr> maghani_sust@yahoo.com
@@ -256,7 +256,7 @@
                                         <h3 class="m-b-xs"><strong>Prof. Dr Himadri Sekhar Roy</strong></h3>
                                         <div class="font-bold">Member</div>
                                         <address class="m-t-md">
-                                            <strong>IQAC</strong><br>
+                                            <strong>QAC</strong><br>
                                             <strong>Shahjalal University of Science and Technology</strong><br>
                                             <abbr title="Phone">Phone:</abbr> 01719266004<br>
                                             <abbr title="Email">Email:</abbr> roy-eng@sust.edu
@@ -279,7 +279,7 @@
                                         <h3 class="m-b-xs"><strong>Prof. Md. Ahmed Kabir Chowdhury</strong></h3>
                                         <div class="font-bold">Member</div>
                                         <address class="m-t-md">
-                                            <strong>IQAC</strong><br>
+                                            <strong>QAC</strong><br>
                                             <strong>Shahjalal University of Science and Technology</strong><br>
                                             <abbr title="Phone">Phone:</abbr> 01714227456<br>
                                             <abbr title="Email">Email:</abbr> makc@sust.edu
@@ -302,7 +302,7 @@
                                         <h3 class="m-b-xs"><strong>Mr Md Ishfaqul Hussain</strong></h3>
                                         <div class="font-bold">Member & Registrar</div>
                                         <address class="m-t-md">
-                                            <strong>IQAC</strong><br>
+                                            <strong>QAC</strong><br>
                                             <strong>Shahjalal University of Science and Technology</strong><br>
                                             <abbr title="Phone">Phone:</abbr> 0821-728338<br>
                                             <abbr title="Email">Email:</abbr> registrar@sust.edu
@@ -325,7 +325,7 @@
                                         <h3 class="m-b-xs"><strong>Mr A N M Joynal Abedin</strong></h3>
                                         <div class="font-bold">Member & Director of Accounts</div>
                                         <address class="m-t-md">
-                                            <strong>IQAC</strong><br>
+                                            <strong>QAC</strong><br>
                                             <strong>Shahjalal University of Science and Technology</strong><br>
                                             <abbr title="Phone">Phone:</abbr> 0821-727961<br>
                                             <abbr title="Email">Email:</abbr> za-fnc@sust.edu
