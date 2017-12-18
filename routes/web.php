@@ -80,6 +80,16 @@ Route::group(['middleware'=>'AuthenticateMiddleware'],function (){
     Route::post('/download/update-file', 'DownloadController@updateFileInfo');
     Route::get('/download/delete-file/{id}', 'DownloadController@deleteFileInfo');
 
+    /*>>>>>>>>>>>>>>>>>>For Gallery<<<<<<<<<<<<<<<*/
+    Route::get('/gallery/add-gallery-file', 'GalleryController@addGalleryFileForm');
+    Route::post('/gallery/new-gallery-file', 'GalleryController@saveGalleryFileInfo');
+    Route::get('/gallery/manage-gallery-file', 'GalleryController@manageGalleryFileInfo');
+    Route::get('/gallery/published-gallery-file/{id}', 'GalleryController@publishedGalleryFileInfo');
+    Route::get('/gallery/unpublished-gallery-file/{id}', 'GalleryController@unpublishedGalleryFileInfo');
+    Route::get('/gallery/edit-gallery-file/{id}', 'GalleryController@editGalleryFileInfo');
+    Route::post('/gallery/update-gallery-file', 'GalleryController@updateGalleryFileInfo');
+    Route::get('/gallery/delete-gallery-file/{id}', 'GalleryController@deleteGalleryFileInfo');
+
     /*>>>>>>>>>>>>>>>>>>For Executive Staff<<<<<<<<<<<<<<<*/
     Route::get('/staff/executive/add-executive-staff', 'StaffController@addExecutiveStaffForm');
     Route::post('/staff/executive/new-executive-staff', 'StaffController@saveExecutiveStaffInfo');

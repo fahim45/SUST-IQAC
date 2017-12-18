@@ -19,7 +19,7 @@ class ActivityController extends Controller
             'activity_place'=> 'required',
             'activity_date'=> 'required|date',
             'activity_description'=> 'required',
-            'image'=> 'required'
+            'image'=> 'required|image'
         ]);
 
         $activityImage = $request->file('image');

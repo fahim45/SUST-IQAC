@@ -68,12 +68,11 @@
                             <div class="gallery-item">
                                 <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery1.jpg">
                                     <div class="gallery-thumb">
-                                        <img src="{{ asset('/front/') }}/images/gallery/gallery1.jpg" alt="" />
+                                        <img src="{{ asset('/front/') }}/images/gallery/gallery1.jpg" alt=""/>
                                     </div>
-                                    {{--<div class="gallery-content">
+                                    <div class="gallery-content">
                                         <h4 class="gallery-title">2014 Faculty Biennial</h4>
-                                        <p class="small-text">Featuring painting, sculpture, ceramics</p>
-                                    </div>--}}
+                                    </div>
                                 </a>
                             </div> <!-- /.gallery-item -->
                         </div> <!-- /.col-md-4 -->
@@ -84,10 +83,9 @@
                                     <div class="gallery-thumb">
                                         <img src="{{ asset('/front/') }}/images/gallery/gallery2.jpg" alt="" />
                                     </div>
-                                    {{--<div class="gallery-content">
+                                    <div class="gallery-content">
                                         <h4 class="gallery-title">Contemporary Southeastern Art</h4>
-                                        <p class="small-text">January 26 - March 8, 2008</p>
-                                    </div>--}}
+                                    </div>
                                 </a>
                             </div> <!-- /.gallery-item -->
                         </div> <!-- /.col-md-4 -->
@@ -98,10 +96,9 @@
                                     <div class="gallery-thumb">
                                         <img src="{{ asset('/front/') }}/images/gallery/gallery3.jpg" alt="" />
                                     </div>
-                                    {{--<div class="gallery-content">
+                                    <div class="gallery-content">
                                         <h4 class="gallery-title">Juried Student Exhibition</h4>
-                                        <p class="small-text">Lorem ipsum sit amet, consectetur elit.</p>
-                                    </div>--}}
+                                    </div>
                                 </a>
                             </div> <!-- /.gallery-item -->
                         </div> <!-- /.col-md-4 -->

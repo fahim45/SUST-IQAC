@@ -157,10 +157,10 @@
                     <a href="#"><i class="fa fa-image fa-fw"></i> Gallery<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="{{ url('') }}">Add Picture</a>
+                            <a href="{{ url('/gallery/add-gallery-file') }}">Add Picture</a>
                         </li>
                         <li>
-                            <a href="{{ url('') }}">Manage Picture</a>
+                            <a href="{{ url('/gallery/manage-gallery-file') }}">Manage Picture</a>
                         </li>
                     </ul>
                 </li>
