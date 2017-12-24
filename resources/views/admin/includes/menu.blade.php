@@ -116,6 +116,33 @@
                     </ul>
                 </li>
                 <li>
+                    <a href="#"><i class="fa fa-users fa-fw"></i> Committee<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="#">SAC Members<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="{{ url('/committee/sac/add-sac-member') }}">Add SAC Members</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/committee/sac/manage-sac-member') }}">Manage SAC Members</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">QAC Members<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="{{ url('/committee/qac/add-qac-member') }}">Add QAC Members</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/committee/qac/manage-qac-member') }}">Manage QAC Members</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
                     <a href="#"><i class="fa fa-user fa-fw"></i> Staff<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>

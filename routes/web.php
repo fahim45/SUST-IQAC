@@ -37,6 +37,27 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 
 Route::group(['middleware'=>'AuthenticateMiddleware'],function (){
+
+    /*>>>>>>>>>>>>>>>>>>For QAC Members<<<<<<<<<<<<<<<*/
+    Route::get('/committee/sac/add-sac-member', 'SACMemberController@addSACMemberForm');
+    Route::post('/committee/sac/new-sac-member', 'SACMemberController@saveSACMemberInfo');
+    Route::get('/committee/sac/manage-sac-member', 'SACMemberController@manageSACMemberInfo');
+    Route::get('/committee/sac/published-sac-member/{id}', 'SACMemberController@publishedSACMemberInfo');
+    Route::get('/committee/sac/unpublished-sac-member/{id}', 'SACMemberController@unpublishedSACMemberInfo');
+    Route::get('/committee/sac/edit-sac-member/{id}', 'SACMemberController@editSACMemberInfo');
+    Route::post('/committee/sac/update-sac-member', 'SACMemberController@updateSACMemberInfo');
+    Route::get('/committee/sac/delete-sac-member/{id}', 'SACMemberController@deleteSACMemberInfo');
+
+    /*>>>>>>>>>>>>>>>>>>For QAC Members<<<<<<<<<<<<<<<*/
+    Route::get('/committee/qac/add-qac-member', 'QACMemberController@addQACMemberForm');
+    Route::post('/committee/qac/new-qac-member', 'QACMemberController@saveQACMemberInfo');
+    Route::get('/committee/qac/manage-qac-member', 'QACMemberController@manageQACMemberInfo');
+    Route::get('/committee/qac/published-qac-member/{id}', 'QACMemberController@publishedQACMemberInfo');
+    Route::get('/committee/qac/unpublished-qac-member/{id}', 'QACMemberController@unpublishedQACMemberInfo');
+    Route::get('/committee/qac/edit-qac-member/{id}', 'QACMemberController@editQACMemberInfo');
+    Route::post('/committee/qac/update-qac-member', 'QACMemberController@updateQACMemberInfo');
+    Route::get('/committee/qac/delete-qac-member/{id}', 'QACMemberController@deleteQACMemberInfo');
+
     /*>>>>>>>>>>>>>>>>>>For Events<<<<<<<<<<<<<<<*/
     Route::get('/events/add-events', 'EventController@addEventForm');
     Route::post('/events/new-events', 'EventController@saveEventInfo');
