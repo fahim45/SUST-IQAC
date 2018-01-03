@@ -19,7 +19,7 @@
             <div class="col-md-8">
                 <div class="widget-main">
                     <div class="widget-main-title">
-                        <h4 class="widget-title">Members of QAC</h4>
+                        <h4 class="widget-title">Members of SAC</h4>
                     </div>
                     <div class="qac-members" style="margin-top: 10px;">
                         <div class="col-md-12">

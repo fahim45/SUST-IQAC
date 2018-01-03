@@ -83,6 +83,17 @@
                     <a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li>
+                    <a href="#"><i class="fa  fa-graduation-cap fa-fw"></i> Department<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{ url('/department/add-department') }}">Add Department</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/department/manage-department') }}">Manage Department</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
                     <a href="#"><i class="fa  fa-tencent-weibo fa-fw"></i> Events<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>

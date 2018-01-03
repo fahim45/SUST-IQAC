@@ -38,10 +38,21 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::group(['middleware'=>'AuthenticateMiddleware'],function (){
 
-    /*>>>>>>>>>>>>>>>>>>For QAC Members<<<<<<<<<<<<<<<*/
+    /*>>>>>>>>>>>>>>>>>>For Department<<<<<<<<<<<<<<<*/
+    Route::get('/department/add-department', 'DepartmentController@addDepartmentForm');
+    Route::post('/department/new-department', 'DepartmentController@saveDepartmentInfo');
+    Route::get('/department/manage-department', 'DepartmentController@manageDepartmentInfo');
+    Route::get('/department/published-department/{id}', 'DepartmentController@publishedDepartmentInfo');
+    Route::get('/department/unpublished-department/{id}', 'DepartmentController@unpublishedDepartmentInfo');
+    Route::get('/department/edit-department/{id}', 'DepartmentController@editDepartmentInfo');
+    Route::post('/department/update-department', 'DepartmentController@updateDepartmentInfo');
+    Route::get('/department/delete-department/{id}', 'DepartmentController@deleteDepartmentInfo');
+
+    /*>>>>>>>>>>>>>>>>>>For SAC Members<<<<<<<<<<<<<<<*/
     Route::get('/committee/sac/add-sac-member', 'SACMemberController@addSACMemberForm');
     Route::post('/committee/sac/new-sac-member', 'SACMemberController@saveSACMemberInfo');
     Route::get('/committee/sac/manage-sac-member', 'SACMemberController@manageSACMemberInfo');
+    Route::get('/committee/sac/view-sac-member/{id}', 'SACMemberController@viewSACMemberInfo');
     Route::get('/committee/sac/published-sac-member/{id}', 'SACMemberController@publishedSACMemberInfo');
     Route::get('/committee/sac/unpublished-sac-member/{id}', 'SACMemberController@unpublishedSACMemberInfo');
     Route::get('/committee/sac/edit-sac-member/{id}', 'SACMemberController@editSACMemberInfo');
