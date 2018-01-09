@@ -16,7 +16,7 @@ class CreateSACMembersTable extends Migration
         Schema::create('s_a_c_members', function (Blueprint $table) {
             $table->increments('id');
             $table->tinyInteger('phase_no');
-            $table->integer('department_name');
+            $table->integer('department_id');
             $table->string('sac_one_name');
             $table->tinyInteger('sac_one_role');
             $table->string('sac_one_mobile');

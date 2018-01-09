@@ -83,6 +83,33 @@
                     <a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li>
+                    <a href="#"><i class="fa fa-home fa-fw"></i> Home<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="#">Slider<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="{{ url('/home/slider/add-slider-image') }}">Add Slider Image</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/home/slider/manage-slider-image') }}">Manage Slider Image</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Content<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="{{ url('/home/content/add-content') }}">Add Content</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/home/content/manage-content') }}">Manage Content</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
                     <a href="#"><i class="fa  fa-graduation-cap fa-fw"></i> Department<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>

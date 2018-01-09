@@ -68,8 +68,8 @@
                     <div class="form-group">
                         <label for="publication_status" class="col-sm-3">Publication Status</label>
                         <div class="col-sm-9">
-                            <select name="publication_status" id="publication_status" class="form-control">
-                                <option>Select Publication Status</option>
+                            <select name="publication_status" id="publication_status" class="form-control" required>
+                                <option value="">Select Publication Status</option>
                                 <option value="1">Published</option>
                                 <option value="0">Unpublished</option>
                             </select>

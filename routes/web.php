@@ -38,6 +38,28 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::group(['middleware'=>'AuthenticateMiddleware'],function (){
 
+    /*>>>>>>>>>>>>>>>>>>For Home Content<<<<<<<<<<<<<<<*/
+    Route::get('/home/content/add-content', 'HomeContentController@addHomeContent');
+    Route::post('/home/content/new-content', 'HomeContentController@saveHomeContent');
+    Route::get('/home/content/manage-content', 'HomeContentController@manageHomeContent');
+    Route::get('/home/content/view-content/{id}', 'HomeContentController@viewHomeContent');
+    Route::get('/home/content/published-content/{id}', 'HomeContentController@publishedHomeContent');
+    Route::get('/home/content/unpublished-content/{id}', 'HomeContentController@unpublishedHomeContent');
+    Route::get('/home/content/edit-content/{id}', 'HomeContentController@editHomeContent');
+    Route::post('/home/content/update-content', 'HomeContentController@updateHomeContent');
+    Route::get('/home/content/delete-content/{id}', 'HomeContentController@deleteHomeContent');
+
+    /*>>>>>>>>>>>>>>>>>>For Slider<<<<<<<<<<<<<<<*/
+    Route::get('/home/slider/add-slider', 'SliderController@addSliderInfo');
+    Route::post('/home/slider/new-slider', 'SliderController@saveSliderInfo');
+    Route::get('/home/slider/manage-slider', 'SliderController@manageSliderInfo');
+    Route::get('/home/slider/view-slider', 'SliderController@viewSliderInfo');
+    Route::get('/home/slider/published-slider/{id}', 'SliderController@publishedSliderInfo');
+    Route::get('/home/slider/unpublished-slider/{id}', 'SliderController@unpublishedSliderInfo');
+    Route::get('/home/slider/edit-slider/{id}', 'SliderController@editSliderInfo');
+    Route::post('/home/slider/update-slider', 'SliderController@updateSliderInfo');
+    Route::get('/home/slider/delete-slider/{id}', 'SliderController@deleteSliderInfo');
+
     /*>>>>>>>>>>>>>>>>>>For Department<<<<<<<<<<<<<<<*/
     Route::get('/department/add-department', 'DepartmentController@addDepartmentForm');
     Route::post('/department/new-department', 'DepartmentController@saveDepartmentInfo');

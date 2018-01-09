@@ -41,12 +41,13 @@
                                 <option value="3">Third Phase</option>
                             </select>
                             <span class="text-danger">{{ $errors->has('phase_no') ? $errors->first('phase_no') : '' }}</span>
+                            <input type="hidden" name="sacmember_id" value="{{ $membersById->id }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="department_name" class="col-sm-2">Department Name</label>
                         <div class="col-sm-10">
-                            <select name="department_name" id="department_name" class="form-control" required>
+                            <select name="department_id" id="department_name" class="form-control" required>
                                 <option value="">Select Department Name</option>
                                 @foreach($departments as $department)
                                     <option value="{{ $department->id }}">{{ $department->department_name }}</option>
@@ -154,7 +155,7 @@
     <!-- /.row -->
     <script>
         document.forms['editSACMemberForm'].elements['phase_no'].value='{{ $membersById->phase_no }}';
-        document.forms['editSACMemberForm'].elements['department_name'].value='{{ $membersById->department_name }}';
+        document.forms['editSACMemberForm'].elements['department_id'].value='{{ $membersById->department_id }}';
         document.forms['editSACMemberForm'].elements['sac_one_role'].value='{{ $membersById->sac_one_role }}';
         document.forms['editSACMemberForm'].elements['sac_two_role'].value='{{ $membersById->sac_two_role }}';
         document.forms['editSACMemberForm'].elements['sac_three_role'].value='{{ $membersById->sac_three_role }}';
