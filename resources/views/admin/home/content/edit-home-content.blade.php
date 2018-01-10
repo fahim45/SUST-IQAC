@@ -30,20 +30,20 @@
                 </div>
             @endif
             <div class="well">
-                <form class="form-horizontal" action="{{ url('/home/content/update-content') }}" method="post">
+                <form class="form-horizontal" action="{{ url('/home/content/update-content') }}" method="post" name="editContentForm">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="home_title" class="col-sm-3">Home Title</label>
                         <div class="col-sm-9">
-                            <input type="text" name="home_title" value="" id="home_title" class="form-control" required>
+                            <input type="text" name="home_title" value="{{ $contentById->home_title }}" id="home_title" class="form-control" required>
                             <span class="text-danger">{{ $errors->has('home_title') ? $errors->first('home_title') : '' }}</span>
-                            <input type="hidden" name="content_id" value="">
+                            <input type="hidden" name="content_id" value="{{ $contentById->id }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="home_description" class="col-sm-3">Home Description</label>
                         <div class="col-sm-9">
-                            <textarea name="home_description" id="home_description" cols="30" rows="10" class="tinymce" style="resize: vertical;"></textarea>
+                            <textarea name="home_description" id="home_description" cols="30" rows="10" class="tinymce" style="resize: vertical;">{{ $contentById->home_description }}</textarea>
                             <span class="text-danger">{{ $errors->has('home_description') ? $errors->first('home_description') : '' }}</span>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
-                            <button type="submit" name="btn" class="btn btn-success btn-block">Add Home Content</button>
+                            <button type="submit" name="btn" class="btn btn-success btn-block">Update Home Content</button>
                         </div>
                     </div>
                 </form>
@@ -69,5 +69,7 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
-
+    <script>
+        document.forms['editContentForm'].elements['publication_status'].value='{{ $contentById->publication_status }}';
+    </script>
 @endsection

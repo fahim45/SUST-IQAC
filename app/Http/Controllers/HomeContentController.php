@@ -45,6 +45,26 @@ class HomeContentController extends Controller
         return redirect('home/content/manage-content')->with('message','Home Content Unpublished Successfully');
     }
     public function editHomeContent($id){
-        return view('admin.home.content.edit-home-content');
+        $contentById = HomeContent::find($id);
+        return view('admin.home.content.edit-home-content',['contentById'=>$contentById]);
+    }
+    public function updateHomeContent(Request $request){
+        $this->validate($request,[
+            'home_title'=>'required',
+            'home_description'=>'required',
+            'publication_status'=>'required',
+        ]);
+        $homeContents = HomeContent::find($request->content_id);
+        $homeContents->home_title = $request->home_title;
+        $homeContents->home_description = $request->home_description;
+        $homeContents->publication_status = $request->publication_status;
+        $homeContents->save();
+        return redirect('home/content/manage-content')->with('message','Home Content Updated Successfully');
+    }
+    public function deleteHomeContent($id){
+        $contentById = HomeContent::find($id);
+        $contentById->delete();
+        return redirect('home/content/manage-content')->with('message','Home Content Deleted Successfully');
+
     }
 }

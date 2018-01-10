@@ -89,10 +89,10 @@
                             <a href="#">Slider<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
-                                    <a href="{{ url('/home/slider/add-slider-image') }}">Add Slider Image</a>
+                                    <a href="{{ url('/home/slider/add-slider') }}">Add Slider Image</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/home/slider/manage-slider-image') }}">Manage Slider Image</a>
+                                    <a href="{{ url('/home/slider/manage-slider') }}">Manage Slider Image</a>
                                 </li>
                             </ul>
                         </li>
