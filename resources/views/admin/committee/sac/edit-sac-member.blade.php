@@ -53,7 +53,7 @@
                                     <option value="{{ $department->id }}">{{ $department->department_name }}</option>
                                 @endforeach
                             </select>
-                            <span class="text-danger">{{ $errors->has('department_name') ? $errors->first('department_name') : '' }}</span>
+                            <span class="text-danger">{{ $errors->has('department_id') ? $errors->first('department_id') : '' }}</span>
                         </div>
                     </div>
                     <div class="form-group">

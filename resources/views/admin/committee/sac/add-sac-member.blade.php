@@ -46,13 +46,13 @@
                     <div class="form-group">
                         <label for="department_name" class="col-sm-2">Department Name</label>
                         <div class="col-sm-10">
-                            <select name="department_name" id="department_name" class="form-control" required>
+                            <select name="department_id" id="department_name" class="form-control" required>
                                 <option value="">Select Department Name</option>
                                 @foreach($departments as $department)
                                     <option value="{{ $department->id }}">{{ $department->department_name }}</option>
                                 @endforeach
                             </select>
-                            <span class="text-danger">{{ $errors->has('department_name') ? $errors->first('department_name') : '' }}</span>
+                            <span class="text-danger">{{ $errors->has('department_id') ? $errors->first('department_id') : '' }}</span>
                         </div>
                     </div>
                     <div class="form-group">

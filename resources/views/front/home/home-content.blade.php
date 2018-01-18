@@ -19,41 +19,11 @@
                 <div class="main-slideshow">
                     <div class="flexslider">
                         <ul class="slides">
+                            @foreach($sliders as $slider)
                             <li>
-                                <img src="{{ asset('/front/') }}/images/slide1.jpg" />
-                                {{--<div class="slider-caption">
-                                    <h2><a href="news-single.html">When a Doctor’s Visit Is a Guilt Trip</a></h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                                </div>--}}
+                                <img src="{{ asset( $slider->slider_photo ) }}" alt="{{ $slider->photo_title }}" />
                             </li>
-                            <li>
-                                <img src="{{ asset('/front/') }}/images/slide2.jpg" />
-                                {{--<div class="slider-caption">
-                                    <h2><a href="news-single.html">Unlocking the scrolls of Herculaneum</a></h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                                </div>--}}
-                            </li>
-                            <li>
-                                <img src="{{ asset('/front/') }}/images/slide3.jpg" />
-                                {{--<div class="slider-caption">
-                                    <h2><a href="news-single.html">Corin Sworn wins Max Mara Art Prize</a></h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                                </div>--}}
-                            </li>
-                            <li>
-                                <img src="{{ asset('/front/') }}/images/slide4.jpg" />
-                                {{--<div class="slider-caption">
-                                    <h2><a href="news-single.html">Corin Sworn wins Max Mara Art Prize</a></h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                                </div>--}}
-                            </li>
-                            <li>
-                                <img src="{{ asset('/front/') }}/images/slide5.jpg" />
-                                {{--<div class="slider-caption">
-                                    <h2><a href="news-single.html">Corin Sworn wins Max Mara Art Prize</a></h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                                </div>--}}
-                            </li>
+                            @endforeach
                         </ul> <!-- /.slides -->
                     </div> <!-- /.flexslider -->
                 </div> <!-- /.main-slideshow -->
@@ -68,20 +38,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="widget-item">
-                            <h2 class="welcome-text">Welcome to IQAC-SUST</h2>
+                            @foreach($contents as $content)
+                            <h2 class="welcome-text">{{ $content->home_title }}</h2>
                             <p style="text-align: justify">
-                                The present government headed by the Hon’ble Prime Minister Sheikh Hasina is committed to change the landscape of higher education through enhancement of quality of higher education and research in the country. For achieving the target of quality education the pGoB and the World Bank has generously funded the project which is known as Higher Education Quality Enhancement Project (HEQEP). The project is being implemented by the University Grants Commission, with help of the project officials and that of by the World Bank. </p>
-
-                            <p style="text-align: justify">Establishment of Quality Assurance Mechanism is one of the major components of HEQEP and for that establishing the Institutional Quality Assurance Cell (IQAC) in each of the universities has been already in place to create an enabling framework to provide improved quality of tertiary education. In this context as an ‘A category’ university Shahjalal University of Science and technology (SUST) has been selected to establish IQAC from the first phase and IQAC-SUST is functioning from 1st January 2015. </p>
-
-                            <p style="text-align: justify">The main purpose of IQAC is to identify the gaps between the existing system and stakeholders demand and to enhance and maintain the standards of quality of higher education up to the international standards. At present IQAC, SUST is working to assess all 25 departments’ academic program to find out the major strength, opportunity, weakness etc. to make proper and appropriate strategic improvement plans for those programs as well as of university. Besides the assessment activities, IQAC is organizing different training, seminar and workshops to improve the quality and efficiency of academic and non-academic personnel. For instance so far IQAC has organized the following programs: </p>
-
-                            <p style="text-align: justify">i.  Seminar on self-assessment: Awareness, motivation, team building and process. </p>
-                            <p style="text-align: justify">ii. Seminar and workshop on curriculum development, pedagogy and metacognitive tools and techniques, report writing and documentation ethical principles of faculty members. </p>
-                            <p style="text-align: justify">iii.    Workshop on good governance: office and financial management. </p>
-                            <p style="text-align: justify">iv. Meeting with stakeholders: Sharing views and opinions with Alumni, employers, guardians, students.</p>
-                            <p style="text-align: justify">IQAC is supposed to be engaged in implementation of the strategic improvement plans those will come out from the activities of self-assessment and peer observation of all 25 departments. It will also work on the modification of different existing academic and administrative rules of SUST based on the recommendation of concerned stakeholders. The ultimate goal of IQAC is to enhance and maintain the quality of education of SUST and getting accreditation of SUST nationally and internationally.
+                                {!! $content->home_description !!}
                             </p>
+                                @endforeach
                         </div> <!-- /.widget-item -->
                     </div> <!-- /.col-md-12 -->
                 </div> <!-- /.row -->
@@ -161,46 +123,13 @@
                     </div>
                     <div class="widget-inner">
                         <div class="gallery-small-thumbs clearfix">
+                            @foreach($galleries as $gallery)
                             <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery1.jpg" title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery1.jpg" alt="" />
+                                <a class="fancybox" rel="gallery1" href="{{ asset($gallery->uploaded_image) }}" title="{{ $gallery->image_title }}">
+                                    <img src="{{ asset($gallery->uploaded_image) }}" alt="{{ $gallery->image_title }}" />
                                 </a>
                             </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery2.jpg" title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery2.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery3.jpg" title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery3.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery4.jpg" title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery4.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery5.jpg" title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery5.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery6.jpg" title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery6.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery7.jpg" title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery7.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery8.jpg" title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery8.jpg" alt="" />
-                                </a>
-                            </div>
+                                @endforeach
                         </div> <!-- /.galler-small-thumbs -->
                     </div> <!-- /.widget-inner -->
                 </div> <!-- /.widget-main -->

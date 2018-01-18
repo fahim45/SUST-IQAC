@@ -62,128 +62,31 @@
                 <div class="row">
 
                     <div id="Grid">
-
-
-                        <div class="col-md-4 mix workshop" data-cat="3">
+                        @foreach($galleries as $gallery)
+                        <div class="col-md-4 mix @if($gallery->image_type==1){{'workshop'}} @elseif($gallery->image_type==2){{'training'}} @elseif($gallery->image_type==3){{'meeting'}} @else{{'others'}}@endif" data-cat="3">
                             <div class="gallery-item">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery1.jpg">
+                                <a class="fancybox" rel="gallery1" href="{{ asset($gallery->uploaded_image) }}">
                                     <div class="gallery-thumb">
-                                        <img src="{{ asset('/front/') }}/images/gallery/gallery1.jpg" alt=""/>
+                                        <img src="{{ asset($gallery->uploaded_image) }}" alt="{{ $gallery->image_title }}"/>
                                     </div>
                                     <div class="gallery-content">
-                                        <h4 class="gallery-title">2014 Faculty Biennial</h4>
+                                        <h4 class="gallery-title">{{ $gallery->image_title }}</h4>
                                     </div>
                                 </a>
                             </div> <!-- /.gallery-item -->
                         </div> <!-- /.col-md-4 -->
-
-                        <div class="col-md-4 mix training" data-cat="1">
-                            <div class="gallery-item">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery2.jpg">
-                                    <div class="gallery-thumb">
-                                        <img src="{{ asset('/front/') }}/images/gallery/gallery2.jpg" alt="" />
-                                    </div>
-                                    <div class="gallery-content">
-                                        <h4 class="gallery-title">Contemporary Southeastern Art</h4>
-                                    </div>
-                                </a>
-                            </div> <!-- /.gallery-item -->
-                        </div> <!-- /.col-md-4 -->
-
-                        <div class="col-md-4 mix meeting" data-cat="2">
-                            <div class="gallery-item">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery3.jpg">
-                                    <div class="gallery-thumb">
-                                        <img src="{{ asset('/front/') }}/images/gallery/gallery3.jpg" alt="" />
-                                    </div>
-                                    <div class="gallery-content">
-                                        <h4 class="gallery-title">Juried Student Exhibition</h4>
-                                    </div>
-                                </a>
-                            </div> <!-- /.gallery-item -->
-                        </div> <!-- /.col-md-4 -->
-
-                        <div class="col-md-4 mix training" data-cat="2">
-                            <div class="gallery-item">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery4.jpg">
-                                    <div class="gallery-thumb">
-                                        <img src="{{ asset('/front/') }}/images/gallery/gallery4.jpg" alt="" />
-                                    </div>
-                                    {{--<div class="gallery-content">
-                                        <h4 class="gallery-title">Game Changer II</h4>
-                                        <p class="small-text">Paintings and Sculpture forms.</p>
-                                    </div>--}}
-                                </a>
-                            </div> <!-- /.gallery-item -->
-                        </div> <!-- /.col-md-4 -->
-
-                        <div class="col-md-4 mix meeting" data-cat="3">
-                            <div class="gallery-item">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery5.jpg">
-                                    <div class="gallery-thumb">
-                                        <img src="{{ asset('/front/') }}/images/gallery/gallery5.jpg" alt="" />
-                                    </div>
-                                    {{--<div class="gallery-content">
-                                        <h4 class="gallery-title">Beauty of Bucknell</h4>
-                                        <p class="small-text">Lorem ipsum sit amet, consectetur elit.</p>
-                                    </div>--}}
-                                </a>
-                            </div> <!-- /.gallery-item -->
-                        </div> <!-- /.col-md-4 -->
-
-                        <div class="col-md-4 mix workshop" data-cat="2">
-                            <div class="gallery-item">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery6.jpg">
-                                    <div class="gallery-thumb">
-                                        <img src="{{ asset('/front/') }}/images/gallery/gallery6.jpg" alt="" />
-                                    </div>
-                                    {{--<div class="gallery-content">
-                                        <h4 class="gallery-title">Royal Fort House</h4>
-                                        <p class="small-text">University Institute for Advanced Studies.</p>
-                                    </div>--}}
-                                </a>
-                            </div> <!-- /.gallery-item -->
-                        </div> <!-- /.col-md-4 -->
-
-                        <div class="col-md-4 mix others" data-cat="2">
-                            <div class="gallery-item">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery7.jpg">
-                                    <div class="gallery-thumb">
-                                        <img src="{{ asset('/front/') }}/images/gallery/gallery7.jpg" alt="" />
-                                    </div>
-                                    {{--<div class="gallery-content">
-                                        <h4 class="gallery-title">Royal Fort House</h4>
-                                        <p class="small-text">University Institute for Advanced Studies.</p>
-                                    </div>--}}
-                                </a>
-                            </div> <!-- /.gallery-item -->
-                        </div> <!-- /.col-md-4 -->
-
-                        <div class="col-md-4 mix others" data-cat="2">
-                            <div class="gallery-item">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery8.jpg">
-                                    <div class="gallery-thumb">
-                                        <img src="{{ asset('/front/') }}/images/gallery/gallery8.jpg" alt="" />
-                                    </div>
-                                    {{--<div class="gallery-content">
-                                        <h4 class="gallery-title">Royal Fort House</h4>
-                                        <p class="small-text">University Institute for Advanced Studies.</p>
-                                    </div>--}}
-                                </a>
-                            </div> <!-- /.gallery-item -->
-                        </div> <!-- /.col-md-4 -->
-
+                        @endforeach
                     </div> <!-- /#Grid -->
 
                 </div> <!-- /.row -->
 
-                <div class="row">
+                {{--<div class="row">
                     <div class="col-md-12">
                         <div class="load-more-btn">
                             <a href="#">Load more images</a>
                         </div>
                     </div> <!-- /.col-md-12 -->
-                </div> <!-- /.row -->
+                </div> <!-- /.row -->--}}
 
             </div> <!-- /.col-md-9 -->
 

@@ -6,8 +6,13 @@ use App\Activity;
 use App\Download;
 use App\Event;
 use App\ExecutiveStaff;
+use App\Gallery;
+use App\HomeContent;
 use App\Notice;
 use App\OfficeStaff;
+use App\QACMember;
+use App\SACMember;
+use App\SliderPhoto;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Mapper;
@@ -16,14 +21,19 @@ use Illuminate\Http\Request;
 class FrontEndController extends Controller
 {
     public function index(){
-        $events = Event::where('publication_status', 1)->limit(3)->get();
-        //return $events;
-        $activities = Activity::where('publication_status', 1)->limit(3)->get();
-        $notices = Notice::where('publication_status', 1)->limit(4)->get();
+        $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $sliders= SliderPhoto::where('publication_status', 1)->limit(5)->orderBy('id', 'DESC')->get();
+        $contents = HomeContent::where('publication_status', 1)->orderBy('id', 'DESC')->get();
+        $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $notices = Notice::where('publication_status', 1)->orderBy('id', 'DESC')->limit(4)->get();
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         return view('front.home.home-content',[
+            'sliders'=>$sliders,
+            'contents'=>$contents,
             'events'=>$events,
             'activities'=>$activities,
-            'notices'=>$notices
+            'notices'=>$notices,
+            'galleries'=>$galleries
         ]);
     }
     public function noticeBoard($id){
@@ -35,21 +45,52 @@ class FrontEndController extends Controller
         ]);
     }
     public function sacMembers(){
-        $events = Event::where('publication_status', 1)->limit(3)->get();
+        $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
+        $sacOneMembers = DB::table('s_a_c_members')
+            ->join('departments', 's_a_c_members.department_id','=','departments.id')
+            ->select('s_a_c_members.*', 'departments.department_name')
+            ->where('s_a_c_members.phase_no', 1)
+            ->where('s_a_c_members.publication_status', 1)
+            ->get();
+        $sacTwoMembers = DB::table('s_a_c_members')
+            ->join('departments', 's_a_c_members.department_id','=','departments.id')
+            ->select('s_a_c_members.*', 'departments.department_name')
+            ->where('s_a_c_members.phase_no', 2)
+            ->where('s_a_c_members.publication_status', 1)
+            ->get();
+        $sacThreeMembers = DB::table('s_a_c_members')
+            ->join('departments', 's_a_c_members.department_id','=','departments.id')
+            ->select('s_a_c_members.*', 'departments.department_name')
+            ->where('s_a_c_members.phase_no', 3)
+            ->where('s_a_c_members.publication_status', 1)
+            ->get();
         return view('front.sac.sac-members',[
-            'events'=>$events
+            'events'=>$events,
+            'galleries'=>$galleries,
+            'sacOneMembers'=>$sacOneMembers,
+            'sacTwoMembers'=>$sacTwoMembers,
+            'sacThreeMembers'=>$sacThreeMembers
         ]);
     }
     public function qacMembers(){
-        $events = Event::where('publication_status', 1)->limit(3)->get();
+        $qacMembers = QACMember::where('publication_status', 1)->orderBy('id', 'ASC')->get();
+        $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         return view('front.qac.qac-members',[
-            'events'=>$events
+            'qacMembers'=>$qacMembers,
+            'events'=>$events,
+            'galleries'=>$galleries
         ]);
     }
     public function iqacEventList(){
-        $activities = Activity::where('publication_status', 1)->limit(3)->get();
+        $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->get();
+        $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         return view('front.iqac-event.iqac-event-list',[
-            'activities'=>$activities
+            'events'=>$events,
+            'activities'=>$activities,
+            'galleries'=>$galleries
         ]);
     }
     public function poeEventList(){
@@ -59,30 +100,40 @@ class FrontEndController extends Controller
         ]);
     }
     public function recentActivities(){
-        $events = Event::where('publication_status', 1)->limit(3)->get();
+        $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->get();
+        $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         return view('front.activities.recent-activities',[
-            'events'=>$events
+            'activities'=>$activities,
+            'events'=>$events,
+            'galleries'=>$galleries
         ]);
     }
     public function gallery(){
-        return view('front.gallery.gallery');
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->get();
+        return view('front.gallery.gallery',[
+            'galleries'=>$galleries
+        ]);
     }
     public function executiveStaff(){
-        $events = Event::where('publication_status', 1)->limit(3)->get();
-        $executiveStaffs = ExecutiveStaff::where('publication_status', '1')->get();
+        $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
+        $executiveStaffs = ExecutiveStaff::where('publication_status', '1')->orderBy('id', 'ASC')->get();
         return view('front.staff.executive-staff',[
             'events'=>$events,
+            'galleries'=>$galleries,
             'executiveStaffs'=>$executiveStaffs
         ]);
     }
     public function officeStaff(){
-        $officeStaffs = OfficeStaff::where('publication_status', '1')->get();
+        $officeStaffs = OfficeStaff::where('publication_status', '1')->orderBy('id', 'ASC')->get();
         return view('front.staff.office-staff',[
             'officeStaffs'=>$officeStaffs
         ]);
     }
     public function manual(){
-        $events = Event::where('publication_status', 1)->limit(3)->get();
+        $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         $files = DB::table('downloads')
             ->where('publication_status', 1)
             ->where('file_type', 1)
@@ -91,11 +142,13 @@ class FrontEndController extends Controller
             ->get();
         return view('front.download.manual',[
             'events'=>$events,
+            'galleries'=>$galleries,
             'files'=>$files
         ]);
     }
     public function documents(){
-        $events = Event::where('publication_status', 1)->limit(3)->get();
+        $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         $files = DB::table('downloads')
             ->where('publication_status', 1)
             ->where('file_type', 2)
@@ -104,6 +157,7 @@ class FrontEndController extends Controller
             ->get();
         return view('front.download.documents',[
             'events'=>$events,
+            'galleries'=>$galleries,
             'files'=>$files
         ]);
     }
@@ -136,21 +190,27 @@ class FrontEndController extends Controller
 
     }
     public function ourMission(){
-        $events = Event::where('publication_status', 1)->limit(3)->get();
+        $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         return view('front.about-us.our-mission',[
-            'events'=>$events
+            'events'=>$events,
+            'galleries'=>$galleries
         ]);
     }
     public function ourVision(){
-        $events = Event::where('publication_status', 1)->limit(3)->get();
+        $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         return view('front.about-us.our-vision',[
-            'events'=>$events
+            'events'=>$events,
+            'galleries'=>$galleries
         ]);
     }
     public function ourObjectives(){
-        $events = Event::where('publication_status', 1)->limit(3)->get();
+        $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         return view('front.about-us.our-objectives',[
-            'events'=>$events
+            'events'=>$events,
+            'galleries'=>$galleries
         ]);
     }
 

@@ -167,54 +167,13 @@
                     </div>
                     <div class="widget-inner">
                         <div class="gallery-small-thumbs clearfix">
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery1.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery1.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery2.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery2.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery3.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery3.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery4.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery4.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery5.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery5.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery6.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery6.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery7.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery7.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery8.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery8.jpg" alt=""/>
-                                </a>
-                            </div>
+                            @foreach($galleries as $gallery)
+                                <div class="thumb-small-gallery">
+                                    <a class="fancybox" rel="gallery1" href="{{ asset($gallery->uploaded_image) }}" title="{{ $gallery->image_title }}">
+                                        <img src="{{ asset($gallery->uploaded_image) }}" alt="{{ $gallery->image_title }}" />
+                                    </a>
+                                </div>
+                            @endforeach
                         </div> <!-- /.galler-small-thumbs -->
                     </div> <!-- /.widget-inner -->
                 </div> <!-- /.widget-main -->

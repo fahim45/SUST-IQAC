@@ -16,7 +16,7 @@ class SACMemberController extends Controller
     public function saveSACMemberInfo(Request $request){
         $this->validate($request,[
             'phase_no'=>'required',
-            'department_name'=>'required',
+            'department_id'=>'required',
             'sac_one_name'=>'required',
             'sac_one_role'=>'required',
             'sac_one_mobile'=>'required|numeric',
@@ -33,7 +33,7 @@ class SACMemberController extends Controller
         ]);
         $sacMembers = new SACMember();
         $sacMembers->phase_no = $request->phase_no;
-        $sacMembers->department_name = $request->department_name;
+        $sacMembers->department_id = $request->department_id;
         $sacMembers->sac_one_name = $request->sac_one_name;
         $sacMembers->sac_one_role = $request->sac_one_role;
         $sacMembers->sac_one_mobile = $request->sac_one_mobile;

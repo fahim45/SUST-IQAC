@@ -20,28 +20,26 @@
             <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-12">
+                        @foreach($activities as $activity)
                         <div class="list-event-item">
                             <div class="box-content-inner clearfix">
-                                <h1 class="text-center text-danger" style="font-weight: 400;">Site Is Under Construction</h1>
-                                {{--<div class="list-event-thumb">
+                                <div class="list-event-thumb">
                                     <a href="event-single.html">
-                                        <img src="images/events/event-list-thumb1.jpg" alt="">
+                                        <img src="{{ asset($activity->image) }}" alt="{{ $activity->activity_title }}">
                                     </a>
-                                </div>--}}
-                                {{--<div class="list-event-header">
-                                    <span class="event-place small-text"><i class="fa fa-globe"></i>109 Health</span>
+                                </div>
+                                <div class="list-event-header">
+                                    <span class="event-place small-text"><i class="fa fa-asterisk"></i>{{ $activity->department_name }}</span>
                                     <span class="event-date small-text"><i
-                                                class="fa fa-calendar-o"></i>January 08, 2014</span>
-                                    <div class="view-details"><a href="event-single.html" class="lightBtn">View Details</a>
+                                                class="fa fa-calendar-o"></i>{{ date('d M, Y', strtotime( $activity->activity_date)) }}</span>
+                                    <div class="view-details"><a href="#" class="lightBtn">View Details</a>
                                     </div>
-                                </div>--}}
-                                {{--<h5 class="event-title"><a href="event-single.html">January Career Centre Events for Grad
-                                        Students</a></h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, cum, quidem aut natus
-                                    odit deleniti placeat quia est quibusdam hic. Quod, minima, excepturi eum repellat
-                                    tempora...</p>--}}
+                                </div>
+                                <h5 class="event-title"><a href="#">{{ $activity->activity_title }}</a></h5>
+                                <p>{!! $activity->activity_description !!}</p>
                             </div> <!-- /.box-content-inner -->
                         </div> <!-- /.list-event-item -->
+                            @endforeach
                     </div> <!-- /.col-md-12 -->
                 </div> <!-- /.row -->
 
@@ -85,54 +83,13 @@
                     </div>
                     <div class="widget-inner">
                         <div class="gallery-small-thumbs clearfix">
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery1.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery1.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery2.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery2.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery3.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery3.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery4.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery4.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery5.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery5.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery6.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery6.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery7.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery7.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery8.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery8.jpg" alt=""/>
-                                </a>
-                            </div>
+                            @foreach($galleries as $gallery)
+                                <div class="thumb-small-gallery">
+                                    <a class="fancybox" rel="gallery1" href="{{ asset($gallery->uploaded_image) }}" title="{{ $gallery->image_title }}">
+                                        <img src="{{ asset($gallery->uploaded_image) }}" alt="{{ $gallery->image_title }}" />
+                                    </a>
+                                </div>
+                            @endforeach
                         </div> <!-- /.galler-small-thumbs -->
                     </div> <!-- /.widget-inner -->
                 </div> <!-- /.widget-main -->

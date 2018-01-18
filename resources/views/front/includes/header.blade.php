@@ -125,3 +125,12 @@
         </div> <!-- /.container -->
     </div> <!-- /.nav-bar-main -->
 </header> <!-- /.site-header -->
+<div class="container">
+    <div class="row" style="height: 25px;">
+        <div class="col-md-12">
+            <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">
+                <h2 class="text-capitalize text-danger" style="font-weight: bold;margin: 0;">Site Is Under Construction</h2>
+            </marquee>
+        </div>
+    </div>
+</div>
