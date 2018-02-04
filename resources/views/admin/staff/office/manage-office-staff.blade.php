@@ -34,6 +34,7 @@
                         <th>SL</th>
                         <th>Name</th>
                         <th>Designation</th>
+                        <th>Role</th>
                         <th>Office Address</th>
                         <th>Mobile No</th>
                         <th>Email</th>
@@ -47,10 +48,11 @@
                             <td>{{ $i++ }}</td>
                             <td>{{ $officeStaff->name }}</td>
                             <td>{{ $officeStaff->designation }}</td>
+                            <td>{{ $officeStaff->role ? 'Officer':'Staff' }}</td>
                             <td>{{ $officeStaff->office_address }}</td>
                             <td>{{ $officeStaff->mobile_no }}</td>
                             <td>{{ $officeStaff->email }}</td>
-                            <td><img src="{{ asset($officeStaff->picture) }}" alt="{{ $officeStaff->name }}" style="height: 80px;"></td>
+                            <td><img src="{{ asset($officeStaff->picture) }}" alt="{{ $officeStaff->name }}" style="height: 80px;width: 80px;"></td>
                             <td>{{ $officeStaff->publication_status ? 'Published':'Unpublished' }}</td>
                             <td>
                                 @if($officeStaff->publication_status == 1)

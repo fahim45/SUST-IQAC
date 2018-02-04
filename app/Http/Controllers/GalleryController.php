@@ -14,7 +14,7 @@ class GalleryController extends Controller
 
     public function saveGalleryFileInfo(Request $request){
         $this->validate($request,[
-            'image_title'=>'required',
+            'image_title'=>'required|min:35|max:50',
             'image_type'=>'required',
             'uploaded_image'=>'required|image',
             'publication_status'=>'required'
@@ -57,7 +57,7 @@ class GalleryController extends Controller
     }
     public function updateGalleryFileInfo(Request $request){
         $this->validate($request,[
-            'image_title'=>'required',
+            'image_title'=>'required|min:35|max:50',
             'image_type'=>'required',
             'uploaded_image'=>'image',
             'publication_status'=>'required'

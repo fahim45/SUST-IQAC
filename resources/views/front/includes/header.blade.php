@@ -65,8 +65,8 @@
 
             <div class="col-md-4 header-right">
                 <ul class="small-links">
-                    <li><a href="{{ url('/our-mission') }}">Mission</a></li>
                     <li><a href="{{ url('/our-vision') }}">Vision</a></li>
+                    <li><a href="{{ url('/our-mission') }}">Mission</a></li>
                     <li><a href="{{ url('/our-objectives') }}">Objectives</a></li>
                     <li><a href="{{ url('/contact') }}">Contact</a></li>
                 </ul>

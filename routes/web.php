@@ -19,6 +19,7 @@ Route::get('/qac-members', 'FrontEndController@qacMembers');
 Route::get('/iqac-events-list', 'FrontEndController@iqacEventList');
 Route::get('/poe-events-list', 'FrontEndController@poeEventList');
 Route::get('/recent-activities', 'FrontEndController@recentActivities');
+Route::get('/recent-activities-details/{id}', 'FrontEndController@recentActivitiesDetails');
 Route::get('/gallery', 'FrontEndController@gallery');
 Route::get('/executive-staff', 'FrontEndController@executiveStaff');
 Route::get('/office-staff', 'FrontEndController@officeStaff');

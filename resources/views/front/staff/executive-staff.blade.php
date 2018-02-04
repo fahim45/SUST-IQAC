@@ -27,8 +27,8 @@
                         <div class="col-lg-6">
                             <div class="widget-head-color-box navy-bg p-lg text-center">
                                 <div class="m-b-md">
-                                    <h2 class="font-bold no-margins">
-                                        {{ $executiveStaff->name }}
+                                    <h2 class="font-bold no-margins" style="font-size: 20px;">
+                                        <b>{{ $executiveStaff->name }}</b>
                                     </h2>
                                     <h4><b>{{ $executiveStaff->designation }}</b></h4>
                                 </div>

@@ -24,7 +24,7 @@
                         <div class="list-event-item">
                             <div class="box-content-inner clearfix">
                                 <div class="list-event-thumb">
-                                    <a href="event-single.html">
+                                    <a href="{{ url('/recent-activities-details/'.$activity->id) }}">
                                         <img src="{{ asset($activity->image) }}" alt="{{ $activity->activity_title }}">
                                     </a>
                                 </div>
@@ -32,25 +32,18 @@
                                     <span class="event-place small-text"><i class="fa fa-asterisk"></i>{{ $activity->department_name }}</span>
                                     <span class="event-date small-text"><i
                                                 class="fa fa-calendar-o"></i>{{ date('d M, Y', strtotime( $activity->activity_date)) }}</span>
-                                    <div class="view-details"><a href="#" class="lightBtn">View Details</a>
+                                    <div class="view-details"><a href="{{ url('/recent-activities-details/'.$activity->id) }}" class="lightBtn">View Details</a>
                                     </div>
                                 </div>
-                                <h5 class="event-title"><a href="#">{{ $activity->activity_title }}</a></h5>
-                                <p>{!! $activity->activity_description !!}</p>
+                                <h5 class="event-title"><a href="{{ url('/recent-activities-details/'.$activity->id) }}">{{ $activity->activity_title }}</a></h5>
+                                <p>{!! substr($activity->activity_description, 0, 250).'............' !!}</p>
                             </div> <!-- /.box-content-inner -->
                         </div> <!-- /.list-event-item -->
                             @endforeach
                     </div> <!-- /.col-md-12 -->
                 </div> <!-- /.row -->
 
-                {{--<div class="row">--}}
-                {{--<div class="col-md-12">--}}
-                {{--<ul class="pager">--}}
-                {{--<li class="previous disabled"><a href="#">&larr; Older</a></li>--}}
-                {{--<li class="next"><a href="#">Newer &rarr;</a></li>--}}
-                {{--</ul>--}}
-                {{--</div> <!-- /.col-md-12 -->--}}
-                {{--</div> <!-- /.row -->--}}
+                {!! $activities->links('vendor.pagination.simple-default') !!}
 
             </div> <!-- /.col-md-8 -->
 
@@ -76,6 +69,30 @@
                         @endforeach
                     </div> <!-- /.widget-inner -->
                 </div> <!-- /.widget-main -->
+
+                <div class="widget-main">
+                    <div class="widget-main-title">
+                        <h4 class="widget-title">Recent Activities</h4>
+                    </div>
+                    <div class="widget-inner" style="padding-top: 0;">
+                        <div class="main-slideshow">
+                            <div class="flexslider" style="height: auto">
+                                <ul class="slides" style="height: 200px;">
+                                    <style>
+                                        ul.flex-direction-nav {
+                                            display: none;
+                                        }
+                                    </style>
+                                    @foreach($activities as $activity)
+                                        <li>
+                                            <img src="{{ asset( $activity->image ) }}" alt="{{ $activity->activity_title }}" />
+                                        </li>
+                                    @endforeach
+                                </ul> <!-- /.slides -->
+                            </div> <!-- /.flexslider -->
+                        </div> <!-- /.main-slideshow -->
+                    </div> <!-- /.widget-inner -->
+                </div><!-- /.widget-main -->
 
                 <div class="widget-main">
                     <div class="widget-main-title">

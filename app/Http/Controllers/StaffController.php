@@ -9,7 +9,7 @@ use Intervention\Image\Facades\Image;
 
 class StaffController extends Controller
 {
-    /************************************* FOR OFFICE STAFF***********************************/
+    /************************************* FOR EXECUTIVE STAFF***********************************/
 
     public function addExecutiveStaffForm(){
         return view('admin.staff.executive.add-executive-staff');
@@ -76,7 +76,7 @@ class StaffController extends Controller
             'name'=>'required',
             'designation'=>'required',
             'office_address'=>'required',
-            'mobile_no'=>'required|regex:/(01)[5-9][0-9]{8}/',
+            'mobile_no'=>'required',
             'email'=>'required|email',
             //'details_link'=>'required',
             'picture'=>'image',
@@ -136,6 +136,7 @@ class StaffController extends Controller
         $this->validate($request,[
             'name'=>'required',
             'designation'=>'required',
+            'role'=>'required',
             'office_address'=>'required',
             'mobile_no'=>'required|regex:/(01)[5-9][0-9]{8}/',
             'email'=>'required|email',
@@ -153,6 +154,7 @@ class StaffController extends Controller
         $officeStaff = new OfficeStaff();
         $officeStaff->name = $request->name;
         $officeStaff->designation = $request->designation;
+        $officeStaff->role = $request->role;
         $officeStaff->office_address = $request->office_address;
         $officeStaff->mobile_no = $request->mobile_no;
         $officeStaff->email = $request->email;
@@ -191,6 +193,7 @@ class StaffController extends Controller
         $this->validate($request,[
             'name'=>'required',
             'designation'=>'required',
+            'role'=>'required',
             'office_address'=>'required',
             'mobile_no'=>'required|regex:/(01)[5-9][0-9]{8}/',
             'email'=>'required|email',
@@ -202,6 +205,7 @@ class StaffController extends Controller
         $executiveStaff = OfficeStaff::find($request->office_id);
         $executiveStaff->name = $request->name;
         $executiveStaff->designation = $request->designation;
+        $executiveStaff->role = $request->role;
         $executiveStaff->office_address = $request->office_address;
         $executiveStaff->mobile_no = $request->mobile_no;
         $executiveStaff->email = $request->email;

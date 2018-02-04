@@ -48,6 +48,17 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="role" class="col-sm-3">Role</label>
+                        <div class="col-sm-9">
+                            <select name="role" id="role" class="form-control" required>
+                                <option value="">Select Staff's Role</option>
+                                <option value="1">Officer</option>
+                                <option value="0">Staff</option>
+                            </select>
+                            <span class="text-danger">{{ $errors->has('role') ? $errors->first('role') : '' }}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="office_address" class="col-sm-3">Office Address</label>
                         <div class="col-sm-9">
                             <input type="text" name="office_address" id="office_address" value="{{ $offStaffById->office_address }}" class="form-control">
@@ -101,6 +112,7 @@
 
     <script>
         document.forms['editOfficeForm'].elements['publication_status'].value='{{ $offStaffById->publication_status }}';
+        document.forms['editOfficeForm'].elements['role'].value='{{ $offStaffById->role }}';
     </script>
 @endsection
 

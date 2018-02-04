@@ -47,6 +47,7 @@ class FrontEndController extends Controller
     public function sacMembers(){
         $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
         $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
+        $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
         $sacOneMembers = DB::table('s_a_c_members')
             ->join('departments', 's_a_c_members.department_id','=','departments.id')
             ->select('s_a_c_members.*', 'departments.department_name')
@@ -68,6 +69,7 @@ class FrontEndController extends Controller
         return view('front.sac.sac-members',[
             'events'=>$events,
             'galleries'=>$galleries,
+            'activities'=>$activities,
             'sacOneMembers'=>$sacOneMembers,
             'sacTwoMembers'=>$sacTwoMembers,
             'sacThreeMembers'=>$sacThreeMembers
@@ -76,10 +78,12 @@ class FrontEndController extends Controller
     public function qacMembers(){
         $qacMembers = QACMember::where('publication_status', 1)->orderBy('id', 'ASC')->get();
         $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
         $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         return view('front.qac.qac-members',[
             'qacMembers'=>$qacMembers,
             'events'=>$events,
+            'activities'=>$activities,
             'galleries'=>$galleries
         ]);
     }
@@ -100,11 +104,21 @@ class FrontEndController extends Controller
         ]);
     }
     public function recentActivities(){
-        $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->get();
+        $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->paginate(5);
         $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
         $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         return view('front.activities.recent-activities',[
             'activities'=>$activities,
+            'events'=>$events,
+            'galleries'=>$galleries
+        ]);
+    }
+    public function recentActivitiesDetails($id){
+        $activities = Activity::where('id', $id)->first();
+        $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
+        return view('front.activities.recent-activities-details',[
+            'activity'=>$activities,
             'events'=>$events,
             'galleries'=>$galleries
         ]);
@@ -126,9 +140,16 @@ class FrontEndController extends Controller
         ]);
     }
     public function officeStaff(){
-        $officeStaffs = OfficeStaff::where('publication_status', '1')->orderBy('id', 'ASC')->get();
+        /*$officers = DB::table('office_staffs')
+            ->where('publication_status', 1)
+            ->where('role', 1)
+            ->orderBy('id', 'ASC')
+            ->get();*/
+        $officers = OfficeStaff::where('publication_status', '1')->where('role', '1')->orderBy('id', 'ASC')->get();
+        $staffs = OfficeStaff::where('publication_status', '1')->where('role', '0')->orderBy('id', 'ASC')->get();
         return view('front.staff.office-staff',[
-            'officeStaffs'=>$officeStaffs
+            'officers'=>$officers,
+            'staffs'=>$staffs
         ]);
     }
     public function manual(){

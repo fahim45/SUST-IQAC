@@ -17,6 +17,7 @@ class CreateOfficeStaffsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('designation');
+            $table->tinyInteger('role');
             $table->string('office_address');
             $table->string('mobile_no');
             $table->string('email');

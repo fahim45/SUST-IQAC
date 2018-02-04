@@ -19,8 +19,8 @@
                 <div class="footer-widget">
                     <h4 class="footer-widget-title">About Us</h4>
                     <ul class="list-links">
-                        <li><a href="{{ url('/our-mission') }}">Our Mission</a></li>
                         <li><a href="{{ url('/our-vision') }}">Our Vision</a></li>
+                        <li><a href="{{ url('/our-mission') }}">Our Mission</a></li>
                         <li><a href="{{ url('/our-objectives') }}">Our Objectives</a></li>
                     </ul>
                 </div>
