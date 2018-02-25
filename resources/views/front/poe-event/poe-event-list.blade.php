@@ -67,16 +67,40 @@
                         @foreach($activities as $activity)
                             <div class="blog-list-post clearfix">
                                 <div class="blog-list-thumb">
-                                    <a href="#"><img src="{{ asset($activity->image) }}" alt="{{ $activity->activity_title }}"></a>
+                                    <a href="{{ url('/recent-activities-details/'.$activity->id) }}"><img src="{{ asset($activity->image) }}" alt="{{ $activity->activity_title }}"></a>
                                 </div>
                                 <div class="blog-list-details">
-                                    <h5 class="blog-list-title"><a href="#">{{ $activity->activity_title }}</a></h5>
-                                    <p class="blog-list-meta small-text"><span><a href="#">{{ date('d F, Y', strtotime( $activity->activity_date )) }}</a></span></p>
+                                    <h5 class="blog-list-title"><a href="{{ url('/recent-activities-details/'.$activity->id) }}">{{ $activity->activity_title }}</a></h5>
+                                    <p class="blog-list-meta small-text"><span>{{ date('d F, Y', strtotime( $activity->activity_date )) }}</span></p>
                                 </div>
                             </div> <!-- /.recent-activities-post -->
                         @endforeach
                     </div> <!-- /.widget-inner -->
                 </div> <!-- /.widget-main -->
+
+                <div class="widget-main">
+                    <div class="widget-main-title">
+                        <h4 class="widget-title">Recent Activities Photo</h4>
+                    </div>
+                    <div class="widget-inner" style="padding-top: 0;">
+                        <div class="main-slideshow">
+                            <div class="flexslider" style="height: auto">
+                                <ul class="slides" style="height: 200px;">
+                                    <style>
+                                        ul.flex-direction-nav {
+                                            display: none;
+                                        }
+                                    </style>
+                                    @foreach($activities as $activity)
+                                        <li>
+                                            <img src="{{ asset( $activity->image ) }}" alt="{{ $activity->activity_title }}" />
+                                        </li>
+                                    @endforeach
+                                </ul> <!-- /.slides -->
+                            </div> <!-- /.flexslider -->
+                        </div> <!-- /.main-slideshow -->
+                    </div> <!-- /.widget-inner -->
+                </div><!-- /.widget-main -->
 
                 <div class="widget-main">
                     <div class="widget-main-title">

@@ -108,7 +108,7 @@
                                     <span class="s-date">{{ date('d', strtotime( $event->event_date )) }}</span>
                                 </div>
                                 <div class="event-small-details">
-                                    <h5 class="event-small-title"><a href="#">{{ $event->event_title }}</a></h5>
+                                    <h5 class="event-small-title"><a href="{{ url('/iqac-event-details/'.$event->id) }}">{{ $event->event_title }}</a></h5>
                                     <p class="event-small-meta small-text">{{ $event->event_place.', Time '.date('H:i A', strtotime( $event->event_time )) }}</p>
                                 </div>
                             </div>
@@ -118,7 +118,7 @@
 
                 <div class="widget-main">
                     <div class="widget-main-title">
-                        <h4 class="widget-title">Recent Activities</h4>
+                        <h4 class="widget-title">Recent Activities Photo</h4>
                     </div>
                     <div class="widget-inner" style="padding-top: 0;">
                         <div class="main-slideshow">

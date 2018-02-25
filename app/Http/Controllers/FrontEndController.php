@@ -38,10 +38,14 @@ class FrontEndController extends Controller
     }
     public function noticeBoard($id){
         $events = Event::where('publication_status', 1)->limit(3)->get();
+        $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
         $notices = Notice::where('id', $id)->first();
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         return view('front.notice.notice',[
             'events'=>$events,
-            'noticeDetails'=>$notices
+            'activities'=>$activities,
+            'noticeDetails'=>$notices,
+            'galleries'=>$galleries
         ]);
     }
     public function sacMembers(){
@@ -88,11 +92,21 @@ class FrontEndController extends Controller
         ]);
     }
     public function iqacEventList(){
-        $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->get();
+        $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->paginate(5);
         $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
         $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         return view('front.iqac-event.iqac-event-list',[
             'events'=>$events,
+            'activities'=>$activities,
+            'galleries'=>$galleries
+        ]);
+    }
+    public function iqacEventDetails($id){
+        $events = Event::where('id', $id)->first();
+        $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
+        return view('front.iqac-event.iqac-event-details',[
+            'event'=>$events,
             'activities'=>$activities,
             'galleries'=>$galleries
         ]);
@@ -124,17 +138,19 @@ class FrontEndController extends Controller
         ]);
     }
     public function gallery(){
-        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->get();
+        $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->paginate(12);
         return view('front.gallery.gallery',[
             'galleries'=>$galleries
         ]);
     }
     public function executiveStaff(){
         $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
         $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         $executiveStaffs = ExecutiveStaff::where('publication_status', '1')->orderBy('id', 'ASC')->get();
         return view('front.staff.executive-staff',[
             'events'=>$events,
+            'activities'=>$activities,
             'galleries'=>$galleries,
             'executiveStaffs'=>$executiveStaffs
         ]);
@@ -154,6 +170,7 @@ class FrontEndController extends Controller
     }
     public function manual(){
         $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
         $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         $files = DB::table('downloads')
             ->where('publication_status', 1)
@@ -163,12 +180,14 @@ class FrontEndController extends Controller
             ->get();
         return view('front.download.manual',[
             'events'=>$events,
+            'activities'=>$activities,
             'galleries'=>$galleries,
             'files'=>$files
         ]);
     }
     public function documents(){
         $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
         $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         $files = DB::table('downloads')
             ->where('publication_status', 1)
@@ -178,6 +197,7 @@ class FrontEndController extends Controller
             ->get();
         return view('front.download.documents',[
             'events'=>$events,
+            'activities'=>$activities,
             'galleries'=>$galleries,
             'files'=>$files
         ]);
@@ -212,25 +232,31 @@ class FrontEndController extends Controller
     }
     public function ourMission(){
         $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
         $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         return view('front.about-us.our-mission',[
             'events'=>$events,
+            'activities'=>$activities,
             'galleries'=>$galleries
         ]);
     }
     public function ourVision(){
         $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
         $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         return view('front.about-us.our-vision',[
             'events'=>$events,
+            'activities'=>$activities,
             'galleries'=>$galleries
         ]);
     }
     public function ourObjectives(){
         $events = Event::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
         $galleries = Gallery::where('publication_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         return view('front.about-us.our-objectives',[
             'events'=>$events,
+            'activities'=>$activities,
             'galleries'=>$galleries
         ]);
     }

@@ -21,7 +21,7 @@
                     <div class="col-md-12">
                             <div class="list-event-item">
                                 <div class="box-content-inner clearfix">
-                                    <h5 class="event-title"><a href="#">{{ $activity->activity_title }}</a></h5>
+                                    <h5 class="event-title" style="color: #4782b2; font-size: 20px; font-weight: 800;">{{ $activity->activity_title }}</h5>
                                     <div class="list-event-header">
                                         <span class="event-place small-text"><i class="fa fa-asterisk"></i>{{ $activity->department_name }}</span>
                                         <span class="event-date small-text"><i class="fa fa-calendar-o"></i>{{ date('d M, Y', strtotime( $activity->activity_date)) }}</span>
@@ -50,7 +50,7 @@
                                     <span class="s-date">{{ date('d', strtotime( $event->event_date )) }}</span>
                                 </div>
                                 <div class="event-small-details">
-                                    <h5 class="event-small-title"><a href="#">{{ $event->event_title }}</a></h5>
+                                    <h5 class="event-small-title"><a href="{{ url('/iqac-event-details/'.$event->id) }}">{{ $event->event_title }}</a></h5>
                                     <p class="event-small-meta small-text">{{ $event->event_place.', Time '.date('H:i A', strtotime( $event->event_time )) }}</p>
                                 </div>
                             </div>

@@ -100,7 +100,7 @@
                     <li><a href="#">Events & Activities</a>
                         <ul class="sub-menu">
                             <li class="{{ request()->is('iqac-events-list') ? 'active' : '' }}"><a href="{{ url('/iqac-events-list') }}">IQAC Events</a></li>
-                            <li class="{{ request()->is('poe-events-list') ? 'active' : '' }}"><a href="{{ url('/poe-events-list') }}">PoE Events</a></li>
+                            {{--<li class="{{ request()->is('poe-events-list') ? 'active' : '' }}"><a href="{{ url('/poe-events-list') }}">PoE Events</a></li>--}}
                             <li class="{{ request()->is('recent-activities') ? 'active' : '' }}"><a href="{{ url('/recent-activities') }}">Recent Activities</a></li>
                         </ul>
                     </li>

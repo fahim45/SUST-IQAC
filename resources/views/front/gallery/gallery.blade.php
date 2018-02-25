@@ -18,7 +18,7 @@
         <div class="row">
 
             <div class="col-md-3">
-                <div class="widget-main">
+                {{--<div class="widget-main">
                     <div class="widget-inner">
                         <div class="search-form-widget">
                             <form name="search_form" method="get" action="#" class="search_form">
@@ -26,7 +26,7 @@
                             </form>
                         </div>
                     </div> <!-- /.widget-inner -->
-                </div> <!-- /.widget-main -->
+                </div> <!-- /.widget-main -->--}}
 
                 <div class="widget-main">
                     <div class="widget-main-title">
@@ -79,6 +79,8 @@
                     </div> <!-- /#Grid -->
 
                 </div> <!-- /.row -->
+
+                {!! $galleries->links('vendor.pagination.simple-default') !!}
 
                 {{--<div class="row">
                     <div class="col-md-12">

@@ -60,11 +60,11 @@
                                 @foreach($activities as $activity)
                                 <div class="blog-list-post clearfix">
                                     <div class="blog-list-thumb">
-                                        <a href="#"><img src="{{ asset($activity->image) }}" alt="{{ $activity->activity_title }}"></a>
+                                        <a href="{{ url('/recent-activities-details/'.$activity->id) }}"><img src="{{ asset($activity->image) }}" alt="{{ $activity->activity_title }}"></a>
                                     </div>
                                     <div class="blog-list-details">
-                                        <h5 class="blog-list-title"><a href="#">{{ $activity->activity_title }}</a></h5>
-                                        <p class="blog-list-meta small-text"><span><a href="#">{{ date('d F, Y', strtotime( $activity->activity_date )) }}</a></span></p>
+                                        <h5 class="blog-list-title"><a href="{{ url('/recent-activities-details/'.$activity->id) }}">{{ $activity->activity_title }}</a></h5>
+                                        <p class="blog-list-meta small-text"><span>{{ date('d F, Y', strtotime( $activity->activity_date )) }}</span></p>
                                     </div>
                                 </div> <!-- /.recent-activities-post -->
                                 @endforeach
@@ -86,7 +86,7 @@
                                         <span class="s-date">{{ date('d', strtotime( $event->event_date )) }}</span>
                                     </div>
                                     <div class="event-small-details">
-                                        <h5 class="event-small-title"><a href="#">{{ $event->event_title }}</a></h5>
+                                        <h5 class="event-small-title"><a href="{{ url('/iqac-event-details/'.$event->id) }}">{{ $event->event_title }}</a></h5>
                                         <p class="event-small-meta small-text">{{ $event->event_place.', Time '.date('H:i A', strtotime( $event->event_time )) }}</p>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@
                     <div class="widget-main-title">
                         <h4 class="widget-title">Notice Board</h4>
                     </div>
-                    <div class="widget-inner" style="height:300px;">
+                    <div class="widget-inner" style="height:300px;font-size: 20px;">
                         <marquee behavior="scroll" direction="up" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();" style="height: 260px;">
                             <ul>
                                 @foreach($notices as $notice)
@@ -119,7 +119,7 @@
 
                 <div class="widget-main">
                     <div class="widget-main-title">
-                        <h4 class="widget-title">Recent Activities</h4>
+                        <h4 class="widget-title">Recent Activities Photo</h4>
                     </div>
                     <div class="widget-inner" style="padding-top: 0;">
                         <div class="main-slideshow">

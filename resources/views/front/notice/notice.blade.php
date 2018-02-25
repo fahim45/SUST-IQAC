@@ -50,7 +50,7 @@
                                     <span class="s-date">{{ date('d', strtotime( $event->event_date )) }}</span>
                                 </div>
                                 <div class="event-small-details">
-                                    <h5 class="event-small-title"><a href="#">{{ $event->event_title }}</a></h5>
+                                    <h5 class="event-small-title"><a href="{{ url('/iqac-event-details/'.$event->id) }}">{{ $event->event_title }}</a></h5>
                                     <p class="event-small-meta small-text">{{ $event->event_place.', Time '.date('H:i A', strtotime( $event->event_time )) }}</p>
                                 </div>
                             </div>
@@ -60,58 +60,41 @@
 
                 <div class="widget-main">
                     <div class="widget-main-title">
+                        <h4 class="widget-title">Recent Activities Photo</h4>
+                    </div>
+                    <div class="widget-inner" style="padding-top: 0;">
+                        <div class="main-slideshow">
+                            <div class="flexslider" style="height: auto">
+                                <ul class="slides" style="height: 200px;">
+                                    <style>
+                                        ul.flex-direction-nav {
+                                            display: none;
+                                        }
+                                    </style>
+                                    @foreach($activities as $activity)
+                                        <li>
+                                            <img src="{{ asset( $activity->image ) }}" alt="{{ $activity->activity_title }}" />
+                                        </li>
+                                    @endforeach
+                                </ul> <!-- /.slides -->
+                            </div> <!-- /.flexslider -->
+                        </div> <!-- /.main-slideshow -->
+                    </div> <!-- /.widget-inner -->
+                </div><!-- /.widget-main -->
+
+                <div class="widget-main">
+                    <div class="widget-main-title">
                         <h4 class="widget-title">Our Gallery</h4>
                     </div>
                     <div class="widget-inner">
                         <div class="gallery-small-thumbs clearfix">
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery1.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery1.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery2.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery2.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery3.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery3.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery4.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery4.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery5.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery5.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery6.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery6.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery7.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery7.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" rel="gallery1" href="{{ asset('/front/') }}/images/gallery/gallery8.jpg"
-                                   title="Gallery Tittle One">
-                                    <img src="{{ asset('/front/') }}/images/gallery/gallery8.jpg" alt=""/>
-                                </a>
-                            </div>
+                            @foreach($galleries as $gallery)
+                                <div class="thumb-small-gallery">
+                                    <a class="fancybox" rel="gallery1" href="{{ asset($gallery->uploaded_image) }}" title="{{ $gallery->image_title }}">
+                                        <img src="{{ asset($gallery->uploaded_image) }}" alt="{{ $gallery->image_title }}" />
+                                    </a>
+                                </div>
+                            @endforeach
                         </div> <!-- /.galler-small-thumbs -->
                     </div> <!-- /.widget-inner -->
                 </div> <!-- /.widget-main -->
