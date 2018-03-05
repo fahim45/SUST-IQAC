@@ -13,6 +13,7 @@
 
 
 Route::get('/', 'FrontEndController@index');
+Route::any('/search', 'FrontEndController@searchResult');
 Route::get('/notice/{id}', 'FrontEndController@noticeBoard');
 Route::get('/sac-members', 'FrontEndController@sacMembers');
 Route::get('/qac-members', 'FrontEndController@qacMembers');
@@ -34,9 +35,7 @@ Route::get('/our-objectives', 'FrontEndController@ourObjectives');
 
 
 Auth::routes();
-
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-
 
 Route::group(['middleware'=>'AuthenticateMiddleware'],function (){
 

@@ -30,9 +30,9 @@
                                 </div>
                                 <div class="list-event-header">
                                     <span class="event-place small-text"><i class="fa fa-asterisk"></i>{{ $activity->department_name }}</span>
-                                    <span class="event-date small-text"><i
-                                                class="fa fa-calendar-o"></i>{{ date('d M, Y', strtotime( $activity->activity_date)) }}</span>
-                                    <div class="view-details"><a href="{{ url('/recent-activities-details/'.$activity->id) }}" class="lightBtn">View Details</a>
+                                    <span class="event-date small-text"><i class="fa fa-calendar-o"></i>{{ date('d M, Y', strtotime( $activity->activity_date)) }}</span>
+                                    <div class="view-details">
+                                        <a href="{{ url('/recent-activities-details/'.$activity->id) }}" class="lightBtn">View Details</a>
                                     </div>
                                 </div>
                                 <h5 class="event-title"><a href="{{ url('/recent-activities-details/'.$activity->id) }}">{{ $activity->activity_title }}</a></h5>
@@ -42,6 +42,7 @@
                             @endforeach
                     </div> <!-- /.col-md-12 -->
                 </div> <!-- /.row -->
+            {{--</div>--}}
 
                 {!! $activities->links('vendor.pagination.simple-default') !!}
 

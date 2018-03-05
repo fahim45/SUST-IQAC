@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Mapper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class FrontEndController extends Controller
 {
@@ -36,6 +37,27 @@ class FrontEndController extends Controller
             'galleries'=>$galleries
         ]);
     }
+
+    public function searchResult(){
+        $search = Input::get('search');
+        if (empty($search)) {
+            return redirect('/');
+        }
+        $searchResults = DB::table('activities')
+            ->where('activities.publication_status', 1)
+            ->where('activities.activity_title', 'LIKE', '%' . $search . '%')
+            ->orWhere('activities.activity_description', 'LIKE', '%' . $search . '%')
+            ->paginate(5);
+        $searchResults->appends(['search' => $search]);
+        if (count($searchResults) > 0) {
+            $data = array();
+            $data['all_results'] = $searchResults;
+            return view('front.search.search', $data);
+        } else {
+            return redirect('/');
+        }
+    }
+
     public function noticeBoard($id){
         $events = Event::where('publication_status', 1)->limit(3)->get();
         $activities = Activity::where('publication_status', 1)->orderBy('id', 'DESC')->limit(3)->get();

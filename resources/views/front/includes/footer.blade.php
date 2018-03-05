@@ -12,7 +12,11 @@
             <div class="col-md-3">
                 <div class="footer-widget">
                     <h4 class="footer-widget-title">Contact Us</h4>
-                    <p>Mailing address:<br/>IQAC, SUST<br/> Sylhet-3114, Bangladesh</p>
+                    <p>Mailing address:<br/>
+                        IQAC (Ground Floor of Central Library)<br/>
+                        Shahjalal University of Science & Technology<br/>
+                        Sylhet-3114, Bangladesh.
+                    </p>
                 </div>
             </div>
             <div class="col-md-2">

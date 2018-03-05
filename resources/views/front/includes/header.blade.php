@@ -71,8 +71,9 @@
                     <li><a href="{{ url('/contact') }}">Contact</a></li>
                 </ul>
                 <div class="search-form">
-                    <form name="search_form" method="get" action="#" class="search_form">
-                        <input type="text" name="s" placeholder="Search the site..." title="Search the site..." class="field_search">
+                    <form method="POST" action="{{ url('/search') }}" class="search_form">
+                        {{ csrf_field() }}
+                        <input type="text" name="search" placeholder="Search the site..." class="field_search">
                     </form>
                 </div>
                 <ul class="social-icons pull-right">
