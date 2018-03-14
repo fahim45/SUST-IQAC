@@ -22,7 +22,7 @@
             <li><a href="#">Events & Activities</a>
                 <ul class="sub-menu">
                     <li><a href="{{ url('/iqac-events-list') }}">IQAC Events</a></li>
-                    <li><a href="{{ url('/poe-events-list') }}">PoE Events</a></li>
+                    {{--<li><a href="{{ url('/poe-events-list') }}">PoE Events</a></li>--}}
                     <li><a href="{{ url('/recent-activities') }}">Recent Activities</a></li>
                 </ul>
             </li>

@@ -28,8 +28,10 @@ IQAC Event List | IQAC-SUST
                                     <span class="event-date small-text"><i class="fa fa-calendar-o"></i>{{ date('d M, Y', strtotime( $event->event_date)) }}</span>
                                     <span class="event-place small-text">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-home"></i>{{ $event->event_place }}</span>
                                 </div>
-                                <h5 class="event-title"><a href="{{ url('/iqac-event-details/'.$event->id) }}">{{ $event->event_title }}</a></h5>
-                                <div class="text-right view-details"><a href="{{ url('/iqac-event-details/'.$event->id) }}" class="lightBtn">View Details</a></div>
+                                {{--<div class="col-md-12">--}}
+                                    <h5 class="col-xs-6 col-sm-6 col-md-6 event-title"><a href="{{ url('/iqac-event-details/'.$event->id) }}">{{ $event->event_title }}</a></h5>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 text-right view-details"><a href="{{ url('/iqac-event-details/'.$event->id) }}" class="lightBtn">View Details</a></div>
+                                {{--</div>--}}
                             </div> <!-- /.box-content-inner -->
                         </div> <!-- /.list-event-item -->
                             @endforeach
